@@ -24,6 +24,5 @@ jobs:
               run: aws eks update-kubeconfig --name dev-cluster --region us-east-1
             - name: Deploy to eks
               run: |
-                    kubectl apply -f k8s/mongo.yaml
                     kubectl apply -f k8s/backend.yaml
                     kubectl apply -f k8s/frontend.yaml
