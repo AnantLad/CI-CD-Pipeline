@@ -21,16 +21,17 @@ provider "aws" {
 
 module "vpc" {
   source             = "../../modules/vpc"
-  environment        = "dev"
-  vpc_cidr           = "10.0.0.0/16"
-  public_subnet      = ["10.0.1.0/24", "10.0.2.0/24"]
-  private_subnet     = ["10.0.11.0/24", "10.0.12.0/24"]
-  availability_zones = ["us-east-1a", "us-east-1b"]
+
+  environment        = var.environment
+  vpc_cidr           = var.vpc_cidr
+  public_subnet      = var.public_subnet
+  private_subnet     = var.private_subnet
+  availability_zones = var.availability_zones
 }
 
 module "eks" {
   source             = "../../modules/eks"
-  environment        = "dev"
+  environment        = var.environment
   vpc_id             = module.vpc.vpc_id
   private_subnet_ids = module.vpc.private_subnet_ids
 }
