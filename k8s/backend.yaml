@@ -20,7 +20,7 @@ spec:
             - containerPort: 4000
           env:
             - name: MONGODB_URL
-              value: mongodb+srv://anantlad018:anantlad018@cluster0.rpdlhx1.mongodb.net
+              value: mongodb+srv://anantlad018:anantlad018@cluster0.rpdlhx1.mongodb.net/aj_store?retryWrites=true&w=majority
 
 ---
 apiVersion: v1
