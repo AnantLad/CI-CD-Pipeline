@@ -1,15 +1,15 @@
-apiVersion: apps/v1
-kind: services
+apiVersion: v1 # Fixed: Services use v1, not apps/v1
+kind: Service
 metadata:
   name: mongo
 spec:
-  selector:
-    app: mongo
   ports:
     - port: 27017
-  clusterIP: None
+  selector:
+    app: mongo
+  clusterIP: None 
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongo
@@ -23,20 +23,20 @@ spec:
     metadata:
       labels:
         app: mongo
-      spec:
-        containers:
-          - name: mongo
-            image: anantlad28/aj_store:mongo
-            ports:
-              - containerPort: 27017
-            volumeMounts:
-              - name: mongo-data
-                mountPath: /data/db
+    spec:
+      containers:
+      - name: mongo
+        image: anantlad28/aj_store:mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-storage
+          mountPath: /data/db
   volumeClaimTemplates:
-    - metadata:
-        name: mongo-data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 5Gi
+  - metadata:
+      name: mongo-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
