@@ -20,7 +20,7 @@ spec:
             - containerPort: 4000
           env:
             - name: MONGO_URL
-              value: ${{secrets.MONGO_URL}}
+              value: ${{secrets.MONGODB_URI}}
 
 ---
 apiVersion: v1
