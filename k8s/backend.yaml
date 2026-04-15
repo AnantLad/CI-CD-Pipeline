@@ -19,8 +19,8 @@ spec:
           ports:
             - containerPort: 4000
           env:
-            - name: MONGO_URL
-              value: ${{secrets.MONGODB_URI}}
+            - name: MONGODB_URL
+              value: mongodb+srv://anantlad018:anantlad018@cluster0.rpdlhx1.mongodb.net
 
 ---
 apiVersion: v1
