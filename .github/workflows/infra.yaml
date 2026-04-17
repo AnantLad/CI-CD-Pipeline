@@ -1,8 +1,8 @@
 name: "Terraform Infrastructure"
 on:
   push:
-    branches: ["main"]
-    paths: ["terraform/**"]
+    # branches: ["main"]
+    # paths: ["terraform/**"]
   workflow_dispatch:
        
 jobs:

@@ -2,8 +2,8 @@ name: " deploy k8s manifests to EKS"
 
 on:
   push:
-    branches: ["main"]
-    paths: ["k8s/**"]
+    # branches: ["main"]
+    # paths: ["k8s/**"]
 
   workflow_dispatch:
     
